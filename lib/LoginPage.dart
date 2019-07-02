@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,94 +11,114 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: (){
-        Navigator.of(context).pop();
-        Navigator.of(context).pop();
+      onWillPop: () async {
+        Future.value(false);
       },
       child: Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+          body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
-          Image.asset(
-            'assets/logo.jpg',
-            height: 220,
-            width: 450,
-          ),
-          Text(
-            'Journal',
-            style: TextStyle(fontSize: 60.0, fontFamily: 'Akey'),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                  padding: EdgeInsets.only(top: 30.0, left: 40.0),
-                  child: CircleAvatar(
-                      radius: 50.0,
-                      backgroundColor: Colors.transparent,
-                      child: GestureDetector(
-                        child: Image.asset('assets/googleicon.png'),
-                        onTap: () {
-                          print('I am pressed');
-                        },
-                      ))),
+                padding: EdgeInsets.only(left: 12.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  radius: 135,
+                  child: Image.asset('assets/starting.png'),
+                ),
+              ),
               Padding(
-                  padding: EdgeInsets.only(top: 30.0, left: 70.0, right: 40.0),
-                  child: CircleAvatar(
-                      radius: 53.0,
-                      backgroundColor: Colors.transparent,
-                      child: GestureDetector(
-                        child: Image.asset('assets/facebookicon.png'),
-                        onTap: () {
-                          print('I am facebook');
-                        },
-                      ))),
+                padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      labelText: 'Username',
+                      labelStyle: TextStyle(
+                          color: Color(0xFF6D6DFB), fontFamily: 'login'),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(color: Color(0xFF6D6DFB))),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 16.0, top: 13.0, right: 16.0),
+                child: TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                      labelText: 'Password',
+                      labelStyle: TextStyle(
+                          color: Color(0xFF6D6DFB), fontFamily: 'login'),
+                      focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(color: Color(0xFF6D6DFB))),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      )),
+                ),
+              ),
+              Padding(
+                  padding: EdgeInsets.only(top: 30.0),
+                  child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    color: Color(0xFF6D6DFB),
+                    minWidth: 250,
+                    height: 60.0,
+                    child: Text(
+                      'Login',
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                          fontFamily: 'login'),
+                    ),
+                    onPressed: () {},
+                  )),
+              Padding(
+                  padding: const EdgeInsets.only(top: 25.0),
+                  child: InkWell(
+                    onTap: () {},
+                    child: Text(
+                      'Forgot Password ?',
+                      style: TextStyle(
+                          fontFamily: 'login',
+                          color: Color(0xFF6D6DFB),
+                          fontSize: 16.0),
+                    ),
+                  )),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 16.0, right: 20.0, left: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Expanded(
+                          child: Divider(
+                            color: Colors.grey,
+                          ),
+                          
+                        
+                        ),
+                        SizedBox(
+                          width: 16.0,
+                        ) ,
+                        Text('OR', style: TextStyle(color: Colors.grey),),
+                         SizedBox(
+                          width: 16.0,
+                        ) ,
+                        Expanded(
+                          child: Divider(
+                            color: Colors.grey,
+                          ),
+                        )
+                      ],
+                    ),
+                  )
             ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 16.0, left: 30.0, right: 30.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Expanded(
-                  child: Divider(
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                Text(
-                  'OR',
-                  style: TextStyle(color: Colors.black, fontSize: 25.0),
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                Expanded(
-                  child: Divider(
-                    color: Colors.black,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(bottom: 25.0, top: 20.0, left: 3.0),
-            child: CircleAvatar(
-              radius: 40.0,
-              backgroundColor: Colors.transparent,
-              child: GestureDetector(
-                child: Image.asset('assets/phonelogo.png',),
-                onTap: () {
-                  print('I am phone ');
-                },
-              )),
           )
         ],
-      ),
-    ),
+      )),
     );
   }
 }
