@@ -25,10 +25,12 @@ dependencies:
   cupertino_icons: ^0.1.2
   connectivity: ^0.4.3+2
   gradient_text: ^1.0.2
-  flutter_spinkit: "^2.1.0"
+  firebase_auth: ^0.11.1+7
+  cloud_firestore: ^0.12.5+2
+  google_sign_in: ^4.0.2
+  firebase_core: ^0.4.0+6
+  flutter_facebook_login: ^2.0.1
   
-  
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -49,11 +51,11 @@ flutter:
 
   assets:
      - assets/starting.png
-     - assets/googleicon.png
-     - assets/facebookicon.png
-     - assets/phonelogo.png
      - assets/offline.png
      - assets/starting.gif
+     - assets/google.png
+     - assets/facebook.png
+     
     
   fonts:
     - family: Akey

@@ -42,12 +42,6 @@ class _LoginPageState extends State<Home> {
   }
 
   @override
-  void setState(fn) {
-    subscription;
-    super.setState(fn);
-  }
-
-  @override
   void dispose() {
     super.dispose();
     subscription.cancel();
@@ -70,7 +64,10 @@ class _LoginPageState extends State<Home> {
               color: Colors.white,
             ),
             
-            Image.asset('assets/starting.gif'),
+            Hero(
+              tag: 'startingImage',
+              child: Image.asset('assets/starting.gif'),
+            ),
             
             Positioned(
               top: 290.0,
